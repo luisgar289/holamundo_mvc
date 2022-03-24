@@ -1,2 +1,30 @@
 <h1>Web.py y MVC </h1>
 <p>Pagina web publica</p>
+
+<table>
+    <th>Sensor 1</th>
+    <th>Sensor 2</th>
+    <th>Sensor 3</th>
+    <tr>
+        <td id="111">{{sensor1}}</td>
+        <td id="123">{{sensor2}}</td>
+        <td id="321">{{sensor3}}</td>
+    </tr>
+</table>
+
+<script> /*--Script para consultar el JSON de firebase */
+    window.setInterval(function(){
+        var request = new XMLHttpRequest();
+        request.open('GET',"https://awi4-4bc78-default-rtdb.firebaseio.com/sensores.json");
+        request.onload = () => {
+            const response = request.responseText;
+            console.log(response); /* Imprime en la consola los datos */
+            const json = JSON.parse(response);
+            document.getElementById('111').innerHTML = json['111'].temperatura;
+            document.getElementById('123').innerHTML = json['123'].temperatura;
+            document.getElementById('321').innerHTML = json['321'].temperatura;
+        };
+        request.send();
+    }, 1000);
+</script>
+    

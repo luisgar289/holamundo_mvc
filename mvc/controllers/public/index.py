@@ -6,3 +6,4 @@ render = web.template.render("mvc/views/public/", base="layout") #ruta de las vi
 class Index: #clase Index
     def GET(self):
         return render.index()
+        
