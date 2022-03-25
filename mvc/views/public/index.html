@@ -15,7 +15,7 @@
 <script> /*--Script para consultar el JSON de firebase */
     window.setInterval(function(){
         var request = new XMLHttpRequest();
-        request.open('GET',"https://awi4-4bc78-default-rtdb.firebaseio.com/sensores.json");
+        request.open('GET','/sensores');
         request.onload = () => {
             const response = request.responseText;
             console.log(response); /* Imprime en la consola los datos */
